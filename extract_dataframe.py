@@ -39,7 +39,11 @@ class TweetDfExtractor:
         return [tweet['user']['statuses_count'] for tweet in self.tweets_list]
 
     def find_full_text(self)->list:
-        text = 
+        try:
+            text = [tweet['extended_tweet']['full_text'] if 'extended_tweet' in tweet else '' for tweet in self.tweets_list]
+        except TypeError:
+            text = ''
+        return text 
        
     
     def find_sentiments(self, text)->list:
