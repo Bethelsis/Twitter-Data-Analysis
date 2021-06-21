@@ -35,8 +35,9 @@ class TweetDfExtractor:
 
     # an example function
     def find_statuses_count(self)->list:
-        statuses_count 
-        
+        print(self.tweets_list[50])
+        return [tweet['user']['statuses_count'] for tweet in self.tweets_list]
+
     def find_full_text(self)->list:
         text = 
        
@@ -135,4 +136,3 @@ if __name__ == "__main__":
 
     # use all defined functions to generate a dataframe with the specified columns above
 
-    
