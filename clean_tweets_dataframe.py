@@ -56,6 +56,7 @@ class Clean_Tweets:
         remove non english tweets from lang
         """
         
-        df = ----
+        df= df.apply(lambda x: re.sub(r"[^a-z\s\(\-:\)\\\/\];='#]", '', x))        
+        
         
         return df
