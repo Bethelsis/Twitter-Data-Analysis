@@ -77,7 +77,7 @@ class TweetDfExtractor:
         
 
     def find_screen_name(self)->list:
-        screen_name = [tweet['screen_name'] if 'screen_name' in tweet else " "for tweet in self.tweets_list]
+        screen_name = [tweet['user']['screen_name'] if 'user' in tweet else " "for tweet in self.tweets_list]
         return screen_name
 
     def find_followers_count(self)->list:
