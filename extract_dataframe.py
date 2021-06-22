@@ -89,11 +89,7 @@ class TweetDfExtractor:
 
     def is_sensitive(self)->list:
         try:
-<<<<<<< HEAD
-            is_sensitive = [x['possibly_sensitive'] if 'possibly_sensitive' in x else '' for x in self.tweets_list]
-=======
             is_sensitive = [x['possibly_sensitive'] if 'possibly_sensitive' in x else None for x in self.tweets_list]
->>>>>>> make_unittest
         except KeyError:
             is_sensitive = ""
 
@@ -124,11 +120,8 @@ class TweetDfExtractor:
 
     def find_mentions(self)->list:
         try:
-<<<<<<< HEAD
-            mentions =  [x['extended_tweet']['entities']['user_mentions'] if 'extended_tweets'in x else "" for x in self.tweets_list]
-=======
             mentions =  [x['extended_tweet']['entities']['user_mentions'] if 'extended_tweet'in x else "" for x in self.tweets_list]
->>>>>>> make_unittest
+
         except KeyError:
             mentions=""
     
@@ -187,10 +180,6 @@ if __name__ == "__main__":
     _, tweet_list = read_json("data/covid19.json")
     tweet = TweetDfExtractor(tweet_list)
     tweet_df = tweet.get_tweet_df(save=True) 
-<<<<<<< HEAD
 
-    # use all defined functions to generate a dataframe with the specified columns above
-=======
->>>>>>> make_unittest
 
     # use all defined functions to generate a dataframe with the specified columns above
