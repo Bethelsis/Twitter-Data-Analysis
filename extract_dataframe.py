@@ -45,10 +45,10 @@ class TweetDfExtractor:
 
     def find_full_text(self)->list:
         try:
-            text = [tweet['retweeted_status']['extended_tweet']['full_text'] if 'retweeted_status' in tweet else '' for tweet in self.tweets_list]
+            text = [x['retweeted_status']['extended_tweet']['full_text'] if 'retweeted_status' in x and 'extended_tweet' in x else '' for x in self.tweets_list]
         except TypeError:
             text = ''
-        return text 
+        return text
        
     
     def find_sentiments(self, text)->list:
@@ -120,7 +120,7 @@ class TweetDfExtractor:
 
     def find_mentions(self)->list:
         try:
-            mentions =  [x['extended_tweet']['entities']['user_mentions'] if 'extended_tweets'in x else "" for x in self.tweets_list]
+            mentions =  [x['extended_tweet']['entities']['user_mentions'] if 'extended_tweet'in x else "" for x in self.tweets_list]
         except KeyError:
             mentions=""
     
