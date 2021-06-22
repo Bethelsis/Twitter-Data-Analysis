@@ -1,3 +1,5 @@
+
+ 
 import json
 import pandas as pd
 from textblob import TextBlob
@@ -35,15 +37,18 @@ class TweetDfExtractor:
 
     # an example function
     def find_statuses_count(self)->list:
-        print(self.tweets_list[50])
-        return [tweet['user']['statuses_count'] for tweet in self.tweets_list]
+        try:
+            statuses_count = [x['user']['statuses_count'] if 'user' in x else '' for x in self.tweets_list]
+            return statuses_count
+        except TypeError:
+            statuses_count = ''
 
     def find_full_text(self)->list:
         try:
-            text = [tweet['extended_tweet']['full_text'] if 'extended_tweet' in tweet else '' for tweet in self.tweets_list]
+            text = [x['retweeted_status']['extended_tweet']['full_text'] if 'retweeted_status' in x and 'extended_tweet' in x else '' for x in self.tweets_list]
         except TypeError:
             text = ''
-        return text 
+        return text
        
     
     def find_sentiments(self, text)->list:
@@ -72,7 +77,7 @@ class TweetDfExtractor:
         
 
     def find_screen_name(self)->list:
-        screen_name = [tweet['screen_name'] if 'screen_name' in tweet else " "for tweet in self.tweets_list]
+        screen_name = [tweet['user']['screen_name'] if 'user' in tweet else " "for tweet in self.tweets_list]
         return screen_name
 
     def find_followers_count(self)->list:
@@ -84,7 +89,11 @@ class TweetDfExtractor:
 
     def is_sensitive(self)->list:
         try:
+<<<<<<< HEAD
             is_sensitive = [x['possibly_sensitive'] if 'possibly_sensitive' in x else '' for x in self.tweets_list]
+=======
+            is_sensitive = [x['possibly_sensitive'] if 'possibly_sensitive' in x else None for x in self.tweets_list]
+>>>>>>> make_unittest
         except KeyError:
             is_sensitive = ""
 
@@ -115,7 +124,11 @@ class TweetDfExtractor:
 
     def find_mentions(self)->list:
         try:
+<<<<<<< HEAD
             mentions =  [x['extended_tweet']['entities']['user_mentions'] if 'extended_tweets'in x else "" for x in self.tweets_list]
+=======
+            mentions =  [x['extended_tweet']['entities']['user_mentions'] if 'extended_tweet'in x else "" for x in self.tweets_list]
+>>>>>>> make_unittest
         except KeyError:
             mentions=""
     
@@ -174,6 +187,10 @@ if __name__ == "__main__":
     _, tweet_list = read_json("data/covid19.json")
     tweet = TweetDfExtractor(tweet_list)
     tweet_df = tweet.get_tweet_df(save=True) 
+<<<<<<< HEAD
 
     # use all defined functions to generate a dataframe with the specified columns above
+=======
+>>>>>>> make_unittest
 
+    # use all defined functions to generate a dataframe with the specified columns above
