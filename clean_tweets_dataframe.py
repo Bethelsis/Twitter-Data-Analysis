@@ -21,7 +21,7 @@ class Clean_Tweets:
         """
         drop duplicate rows
         """
-        df.drop_duplicates(['screen_name','original_text','created_at'],keep="first")
+        df.drop_duplicates()
         
         return df
     def convert_to_datetime(self, df:pd.DataFrame)->pd.DataFrame:
@@ -57,3 +57,11 @@ class Clean_Tweets:
         df = df[df['lang']=='en']
         
         return df
+if __name__ == "__main__":
+     df = pd.read_csv("/home/bethelhem/Twitter-Data-Analysis/processed_tweet_data.csv") 
+     clean_tweets = Clean_Tweets(df=df) 
+     df = clean_tweets.drop_duplicate(df) 
+     df = clean_tweets.remove_non_english_tweets(df) 
+     df = clean_tweets.drop_unwanted_column(df) 
+     
+     
