@@ -62,6 +62,9 @@ if __name__ == "__main__":
      clean_tweets = Clean_Tweets(df=df) 
      df = clean_tweets.drop_duplicate(df) 
      df = clean_tweets.remove_non_english_tweets(df) 
-     df = clean_tweets.drop_unwanted_column(df) 
+     df = clean_tweets.drop_unwanted_column(df)
+     df = clean_tweets.convert_to_datetime(df)  
+     df = clean_tweets.convert_to_numbers(df) 
+   
      
      
