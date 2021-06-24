@@ -1,23 +1,26 @@
-# Twitter-Data-Analysis
+       Twitter-Data-Analysis
 
-### So here are the bare minimum requirement for completing this task
+Dataset Information
 
-1. Fork repository to your github account
-2. Create a branch called “fix_bug” to fix the bugs in the fix_clean_tweets_dataframe.py and fix_extract_dataframe.py 
-3. In branch `fix_bug` copy or rename `fix_clean_tweets_dataframe.py` to `clean_tweets_dataframe.py` and `fix_extract_dataframe.py`  to `extract_dataframe.py` 
-4. Fix the bugs on `clean_tweets_dataframe.py` and `extract_dataframe.py` 
-5. Multiple times push the code you are working on to git, and once the fix is complete, merge the `fix_bug` branch to master
-6. Create a new branch called `make_unittest` for creating a new unit test for extract_dataframe.py code.
-7. After completing the unit test writing, merge  “make_unittest”  to main branch
-8. In all cases when you merge, make sure you first do Pull Request, review, then accept the merge.
-9. Setup Travis CI to your repository such that when you git push new code (or merge a branch) to the main branch, the unit test in tests/*.py runs automatically. 10. All tests should pass.
+The data is raw Twitter data dumb in JSON format on COVID19 related topics. It is collected using the following keywords:‘COVID19 Africa’, ‘COVID19 Vaccination Africa’, ‘Sars-Cov2 Mutation Africa’.It has 6532 records(rows).
 
-After Completing this Challenge, you would have explore  
 
-- Unittesting
-- Modular Coding
-- Software Engineering Best Practices
-- Python Package Structure
-- Bug Fix (Debugging)
+Methodology
 
-Have Fun and Cheers
+First, I cleaned the tweets. I have dropped duplicated rows, dropped unwanted
+columns. I also changed the format of some columns to the appropriate format like from
+string to DateTime.Then I converted columns like polarity, subjectivity,
+retweet_count,favorite_count etc to numbers. Then I visualized the data using different
+charts. The cleaned data was split for training and testing using sklearn, train test split
+module. Finally, SGD classifier was used to train the model using the training data. I
+then checked the accuracy of the model.
+
+
+Information about other files
+
+    • processed_tweet_data.csv -contains our data in CSV format
+
+    • clean_processed_tweet_data- contains the cleaned data set in CSV format.
+      
+
+
