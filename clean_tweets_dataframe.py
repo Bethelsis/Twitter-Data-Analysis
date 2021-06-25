@@ -39,7 +39,6 @@ class Clean_Tweets:
         convert columns like polarity, subjectivity, retweet_count
         favorite_count etc to numbers
         """
-        df['screen_count'] = pd.to_numeric(df['screen_count'])
         df['followers_count'] = pd.to_numeric(df['followers_count'])
         df['polarity'] = pd.to_numeric(df['polarity'])
         df['subjectivity'] = pd.to_numeric(df['subjectivity'])
@@ -61,6 +60,9 @@ class Clean_Tweets:
 if __name__ == "__main__":
     df = pd.read_csv("./processed_tweet_data.csv")
     clean_tweets = Clean_Tweets(df=df)
+    df = clean_tweets.drop_unwanted_column(df)
+    df = clean_tweets.convert_to_numbers(df)
+    df = clean_tweets.convert_to_datetime(df)
     df = clean_tweets.drop_duplicate(df)
     df = clean_tweets.remove_non_english_tweets(df)
     df.to_csv('clean_processed_tweet_data.csv')
