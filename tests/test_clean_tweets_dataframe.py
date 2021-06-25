@@ -18,8 +18,8 @@ class TestClean_Tweets(unittest.TestCase):
     def test_drop_duplicate(self):
         self.assertEqual(df.duplicated().sum(),0)
 
-    def test_drop_unwanted_column(self):
-        self.assertEqual()
+    #def test_drop_unwanted_column(self):
+       # self.assertEqual()
     
     def test_remove_non_english_tweets(self):
         self.assertEqual(df['lang'].values.all(),np.array(["en" for _ in range(len(df['lang'].values))],dtype=object).all())
