@@ -14,7 +14,7 @@ class TestClean_Tweets(unittest.TestCase):
         self.assertEqual(df.dtypes[ ['screen_count','followers_count','polarity','subjectivity','retweet_count','favorite_count','friends_count']], "float64","int64","float64","float64","float64","float64","int64")
 
     def test_drop_duplicate(self):
-        self.assertEqual()
+        self.assertEqual(df.duplicated().sum(),307)
 
     def test_drop_unwanted_column(self):
         self.assertEqual()
