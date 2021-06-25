@@ -47,6 +47,7 @@ class TestTweetDfExtractor(unittest.TestCase):
 
     def test_find_source(self):
         source = ['<a href="http://twitter.com/download/iphone" rel="nofollow">Twitter for iPhone</a>', '<a href="https://mobile.twitter.com" rel="nofollow">Twitter Web App</a>', 
+
         '<a href="http://twitter.com/download/iphone" rel="nofollow">Twitter for iPhone</a>', '<a href="https://mobile.twitter.com" rel="nofollow">Twitter Web App</a>',
          '<a href="http://twitter.com/download/android" rel="nofollow">Twitter for Android</a>']
 
