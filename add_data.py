@@ -1,25 +1,13 @@
 import os
 import pandas as pd
-import mysql.connector as mysql
+import mysql.connector
 from mysql.connector import Error
 
 def DBConnect(dbName=None):
-    """
-
-    Parameters
-    ----------
-    dbName :
-        Default value = None)
-
-    Returns
-    -------
-
-    """
-    conn = mysql.connect(host='localhost', user='root', password=os.getenv('mysqlPass'),
-                         database=dbName, buffered=True)
+    conn=mysql.connector.connect(host='localhost',port="3306", user='root', password="",
+                         database=dbName)
     cur = conn.cursor()
     return conn, cur
-
 def emojiDB(dbName: str) -> None:
     conn, cur = DBConnect(dbName)
     dbQuery = f"ALTER DATABASE {dbName} CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;"
@@ -64,7 +52,7 @@ def createTables(dbName: str) -> None:
 
     """
     conn, cur = DBConnect(dbName)
-    sqlFile = 'day5_schema.sql'
+    sqlFile = '/home/bethelhem/Twitter-Data-Analysis/schema.sql'
     fd = open(sqlFile, 'r')
     readSqlFile = fd.read()
     fd.close()
@@ -211,6 +199,5 @@ if __name__ == "__main__":
     emojiDB(dbName='tweets')
     createTables(dbName='tweets')
 
-    df = pd.read_csv('fintech.csv')
-
+    df = pd.read_csv('../processed_tweet_data.csv')
     insert_to_tweet_table(dbName='tweets', df=df, table_name='TweetInformation')
