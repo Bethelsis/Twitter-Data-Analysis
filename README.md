@@ -1,6 +1,8 @@
-﻿                                              ** Twitter-Data-Analysis**
-
-
+﻿                                             
+                                              ** Twitter-Data-Analysis**__
+                                               
+                                               
+                                               
 **Dataset information**
 
 The data is raw Twitter data dumb in JSON format on COVID19 related topics. It is collected using the following keywords:‘COVID19 Africa’, ‘COVID19 Vaccination
