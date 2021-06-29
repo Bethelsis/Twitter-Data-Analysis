@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import sys, os
 sys.path.append(os.path.abspath(os.path.join('..')))
-from clean_tweets_dataframe import Clean_Tweets
+
 
 df = pd.read_csv("clean_processed_tweet_data.csv")
 class TestClean_Tweets(unittest.TestCase):
