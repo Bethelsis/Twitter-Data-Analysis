@@ -26,9 +26,6 @@ The data is then visualised using different charts. The cleaned data was split f
     
     • To visualize the most occuring words we've used wordclouds.
     
-    
-    ![image](https://user-images.githubusercontent.com/79685190/137007106-fed4bd81-94d5-4236-b350-3229844c65fe.png)
-
 
 **CI Implementation with Travis CI**
 
